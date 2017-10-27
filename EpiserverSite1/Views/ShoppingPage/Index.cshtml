@@ -1,0 +1,8 @@
+﻿@using EpiserverSite1.Models.ViewModels
+@using EpiserverSite1.Models.Pages
+
+@model PageViewModel<ShoppingPage>
+    
+<div class="row">
+    @Html.PropertyFor(x => x.CurrentPage.Categories)
+</div>
