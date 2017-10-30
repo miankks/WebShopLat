@@ -2,7 +2,10 @@
 @using EpiserverSite1.Models.Pages
 
 @model PageViewModel<ShoppingPage>
-    
+  
 <div class="row">
-    @Html.PropertyFor(x => x.CurrentPage.Categories)
+    <div class="span8">
+    @*@Html.PropertyFor(x => x.CurrentPage.Categories)*@
+    @Html.PropertyFor(x => x.CurrentPage.MainBody)
+    </div>
 </div>

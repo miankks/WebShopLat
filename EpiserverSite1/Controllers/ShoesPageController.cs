@@ -12,23 +12,25 @@ namespace EpiserverSite1.Controllers
 {
     public class ShoesPageController : PageControllerBase<ShoesPage>
     {
-        public ActionResult Index(ShoeViewModel currentPage)
+        public ActionResult Index(ShoesPage currentPage)
         {
-            if (currentPage != null)
-            {
-            var model = new PageViewModel<ShoeViewModel>(currentPage);
-            return View(model);
-            }
+            //var shoesRepository = EPiServer.ServiceLocation.ServiceLocator.Current.GetInstance<IContentRepository>();
+            //currentPage.ShoesItems = shoesRepository.GetChildren<ShoesPage>(currentPage.ContentLink).ToList();
+            //var model = new PageViewModel<ShoesPage>(currentPage);
+            //return View(model);
 
-            else
-            {
-                return Redirect("Index");
-            }
+            var model = new PageViewModel<ShoesPage>(currentPage);
+
+            model.CurrentPage = currentPage;
+            
+            return View(model);
+
+            //    List<ShoeViewModel<ShoesPage>> model = new List<ShoeViewModel<ShoesPage>>(currentPage);
             /* Implementation of action. You can create your own view model class that you pass to the view or
              * you can pass the page type for simpler templates */
             //var model = new PageViewModel<ShoesPage>();
             //var model = new PageViewModel<ShoeViewModel>(currentPage);
-            //List<ShoesPage> model = new List<ShoesPage>();
+            //return View(currentPage);
         }
     }
 }

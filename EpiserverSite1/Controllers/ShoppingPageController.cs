@@ -11,13 +11,14 @@ using EPiServer.Web.Mvc;
 
 namespace EpiserverSite1.Controllers
 {
-    public class ShoppingPageController : PageControllerBase<ShoppingPage>
+    public class ShoppingPageController : PageControllerBase<ShoesPage>
     {
         public ActionResult Index(ShoppingPage currentPage)
         {
             /* Implementation of action. You can create your own view model class that you pass to the view or
              * you can pass the page type for simpler templates */
             var model =new  PageViewModel<ShoppingPage>(currentPage);
+
             return View(model);
         }
     }

@@ -1,53 +1,17 @@
 ﻿@using EPiServer.Web.PageExtensions
-@*@model  List<PageViewModel<ShoeViewModel>>*@
+
+@model  PageViewModel<ShoesPage>
 
 
-@*<div class="span6">
+<div class="span6">
     <div class="media">
         <div class="mediaImg">
-         
-            <h1> @Html.PropertyFor(x => x.CurrentPage.ShoesImage)</h1>
-            <h1> @Html.PropertyFor(x => x.CurrentPage.ShoesName)</h1>
-            <h3> @Html.PropertyFor(x => x.CurrentPage.ShoesPrice) </h3>
+            <p>Here is shoes page</p>
+            @*@foreach (var shoeItem in Model.CurrentPage.ShoesItems)
+            {
+                <h4>@shoeItem.</h4>
+            }*@
+            @*<h1> @Html.PropertyFor(x => x.CurrentPage.ShoesItems)</h1>*@
         </div>
     </div>
-</div>*@
-
-
-@*@{
-    var contentAreaItems = Model.CurrentPage.ShoesName.Take(5);
-
-    foreach (var item in contentAreaItems)
-    {
-        var block = item.GetContent();
-        Html.RenderContentData(block, true);
-    }
-}*@
-
-@*@{
-    var contentLoader = ServiceLocator.Current.GetInstance<ShoesPage>();
-    if (page != null && page.ContentArea != null && page.ContentArea.Items.Any())
-    {
-        foreach (var contentItem in page.ContentArea.Items)
-        {
-            var item = contentLoader.Get<YOUR_CONTENT_TYPE>(contentItem.ContentLink);
-            // output necessary properties from content instance
-        }
-    }
-}*@
-@*<div class="row">
-    <button type="submit" class="btn">Submit</button>
 </div>
-
-<div class="item">
-    <div class="itemDetails">
-        <div class="itemImage">
-            <img src="http://lorempixel.com/300/300/sports" alt="" />
-        </div>
-        <div class="itemText">
-            <p class="price">Price: €10</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam at optio nam asperiores ipsam voluptate eaque labore.</p>
-        </div>
-    </div>
-    <button class="add">Add to cart</button>
-</div>*@

@@ -7,8 +7,8 @@ using EpiserverSite1.Models.Pages;
 
 namespace EpiserverSite1.Models.ViewModels
 {
-    public interface IShoeViewModel<out T> where T : ShoesPage
-    {
-        T CurrentPage { get; }
-    }
+    //public interface IShoeViewModel<out T> where T : SitePageData
+    //{
+    //    T CurrentPage { get; }
+    //}
 }
