@@ -14,16 +14,16 @@ namespace EpiserverSite1.Controllers
     {
         public ActionResult Index(ShoesPage currentPage)
         {
-            //var shoesRepository = EPiServer.ServiceLocation.ServiceLocator.Current.GetInstance<IContentRepository>();
-            //currentPage.ShoesItems = shoesRepository.GetChildren<ShoesPage>(currentPage.ContentLink).ToList();
-            //var model = new PageViewModel<ShoesPage>(currentPage);
-            //return View(model);
-
+            var shoesRepository = EPiServer.ServiceLocation.ServiceLocator.Current.GetInstance<IContentRepository>();
+            currentPage.ShoesItems = shoesRepository.GetChildren<ShoesPage>(currentPage.ContentLink).ToList();
             var model = new PageViewModel<ShoesPage>(currentPage);
-
-            model.CurrentPage = currentPage;
-            
             return View(model);
+
+            //var model = new PageViewModel<ShoesPage>(currentPage);
+
+            //model.CurrentPage = currentPage;
+
+            //return View(model);
 
             //    List<ShoeViewModel<ShoesPage>> model = new List<ShoeViewModel<ShoesPage>>(currentPage);
             /* Implementation of action. You can create your own view model class that you pass to the view or
