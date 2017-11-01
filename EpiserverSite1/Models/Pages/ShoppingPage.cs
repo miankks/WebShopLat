@@ -13,21 +13,35 @@ namespace EpiserverSite1.Models.Pages
     {
         [Display(
             Name = "Product Image",
+            Description = "Product Image",
             GroupName = SystemTabNames.Content,
             Order = 10)]
         [UIHint(UIHint.Image)]
-        public virtual ContentReference ShoesImage { get; set; }
+        public virtual ContentReference ProductImage { get; set; }
 
         [Display(
             Name = "Product name",
             GroupName = SystemTabNames.Content,
             Order = 20)]
-        public virtual string ShoesName { get; set; }
+        public virtual string ProductName { get; set; }
+
+        [Display(
+            Name = "Product price",
+            GroupName = SystemTabNames.Content,
+            Order = 20)]
+        public virtual string ProductPrice { get; set; }
 
         [Display(
             Name = "Product description",
             GroupName = SystemTabNames.Content,
             Order = 40)]
-        public virtual XhtmlString ShoesDecscription { get; set; }
+        public virtual XhtmlString ProductDecscription { get; set; }
+
+        [Display(
+            Name = "Product content area",
+            GroupName = SystemTabNames.Content,
+            Order = 50)]
+        [CultureSpecific]
+        public virtual ContentArea ProductContentArea { get; set; }
     }
 }

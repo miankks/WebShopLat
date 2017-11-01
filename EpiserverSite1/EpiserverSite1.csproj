@@ -283,7 +283,7 @@
     <Compile Include="Controllers\PreviewController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\SearchPageController.cs" />
-    <Compile Include="Controllers\ShoppingViewPageController.cs" />
+    <Compile Include="Controllers\ShoppingCategoryPageController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Controllers\VideoFileController.cs" />
     <Compile Include="Global.asax.cs">
@@ -316,6 +316,7 @@
     <Compile Include="Models\Pages\NewsPage.cs" />
     <Compile Include="Models\Pages\ProductPage.cs" />
     <Compile Include="Models\Pages\SearchPage.cs" />
+    <Compile Include="Models\Pages\ShoppingCategoryPage.cs" />
     <Compile Include="Models\Pages\ShoppingPage.cs" />
     <Compile Include="Models\Pages\SitePageData.cs" />
     <Compile Include="Models\Pages\StandardPage.cs" />
@@ -333,7 +334,7 @@
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
     <Compile Include="Models\ViewModels\PreviewModel.cs" />
     <Compile Include="Models\ViewModels\SearchContentModel.cs" />
-    <Compile Include="Models\ViewModels\ShoppingViewPage.cs" />
+    <Compile Include="Models\ViewModels\ShoppingCategoryPageViewModel.cs" />
     <Compile Include="Models\ViewModels\VideoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -448,7 +449,8 @@
     <Content Include="Views\ContactBlock\Index.cshtml" />
     <Content Include="Views\ArticlePage\Index.cshtml" />
     <Content Include="Views\FAQPage\Index.cshtml" />
-    <Content Include="Views\ShoppingViewPage\Index.cshtml" />
+    <Content Include="Views\ShoppingCategoryPage\Index.cshtml" />
+    <Content Include="Views\ShoppingPage\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

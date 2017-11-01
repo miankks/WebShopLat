@@ -1,0 +1,22 @@
+﻿
+
+@model EpiserverSite1.Models.ViewModels.ShoppingCategoryPageViewModel
+
+<div class="row">
+    <p>Shopping category page</p>
+</div>
+
+<ul>
+    @foreach (var item in Model.ShoppingCategoryPages)
+    {
+        <li><h2><a href="@item.LinkURL">@item.Name</a></h2>
+    </li>
+    }
+</ul>
+
+@foreach (var item in Model.ShoppingPages)
+{
+    <h2><a href="@item.LinkURL">@item.Name</a></h2>
+    @item.ProductContentArea
+    
+}
