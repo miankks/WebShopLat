@@ -28,7 +28,6 @@ namespace EpiserverSite1.Controllers
             //var categoryPages = shoppingRepository.GetChildren<ShoppingCategoryPage>(currentPage.ContentLink).ToList();
 
             //var model = new ShoppingCategoryPageViewModel(currentPage);
-            //model.ShoppingPages = shoppingPages;
             //model.ShoppingCategoryPages = categoryPages;
             #endregion
 
@@ -39,18 +38,19 @@ namespace EpiserverSite1.Controllers
                 ShoppingCategoryPages = categoryPages
             };
 
-            var shoppingLinks = contentRepository.GetDescendents(currentPage.ContentLink).ToList();
+            var shoppingLinks = contentRepository.GetChildren<ShoppingPage>(currentPage.ContentLink).ToList();
+            model.ShoppingPages = shoppingLinks;
 
-            foreach (var link in shoppingLinks)
-            {
-                var shoppingPage = contentRepository.Get<PageData>(link) as ShoppingPage;
+            //foreach (var link in shoppingLinks)
+            //{
+            //    var shoppingPage = contentRepository.Get<PageData>(link) as ShoppingPage;
 
-                if (shoppingPage != null)
-                {
-                    model.ShoppingPages.Add(shoppingPage);
-                }
-            }
-            
+            //    if (shoppingPage != null)
+            //    {
+            //        model.ShoppingPages.Add(shoppingPage);
+            //    }
+            //}
+
             return View(model);
         }
     }

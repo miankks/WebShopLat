@@ -7,7 +7,14 @@
 
     <div class="media span4">
         <div class="mediaImg">
+            @if (Model.CurrentPage.ProductImage != null)
+            {
             @Html.PropertyFor(x => x.CurrentPage.ProductImage)
+            }
+            else
+            {
+                <img src = "~/Static/gfx/nopreviewavailable.png" />
+            }
             <h3 @Html.EditAttributes(x => x.CurrentPage.ProductName)>@Html.PropertyFor(x => x.CurrentPage.ProductName)</h3>
             <h3 @Html.EditAttributes(x => x.CurrentPage.ProductPrice)>@Html.PropertyFor(x => x.CurrentPage.ProductPrice)</h3>
         </div>

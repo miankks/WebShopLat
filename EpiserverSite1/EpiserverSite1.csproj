@@ -371,6 +371,7 @@
     <Content Include="Static\gfx\logotype.png" />
     <Content Include="Static\gfx\meet.jpg" />
     <Content Include="Static\gfx\New_FDT_Press_Contact_.JPG" />
+    <Content Include="Static\gfx\nopreviewavailable.png" />
     <Content Include="Static\gfx\page-type-thumbnail-article.png" />
     <Content Include="Static\gfx\page-type-thumbnail-contact.png" />
     <Content Include="Static\gfx\page-type-thumbnail-product.png" />
