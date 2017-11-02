@@ -12,35 +12,23 @@ namespace EpiserverSite1.Controllers
 {
     public class ShoppingCategoryPageController : PageControllerBase<ShoppingCategoryPage>
     {
-        private IContentRepository contentRepository;
+        private readonly IContentRepository _contentRepository;
 
         public ShoppingCategoryPageController(IContentRepository contentRepository)
         {
-            this.contentRepository = contentRepository;
+            this._contentRepository = contentRepository;
         }
 
         public ActionResult Index(ShoppingCategoryPage currentPage)
         {
             #region Only with GetChildren
-            //var shoppingRepository = EPiServer.ServiceLocation.ServiceLocator.Current.GetInstance<IContentRepository>(); used controller contructor instead (service locator)
+            //var shoppingRepository = EPiServer.ServiceLocation.ServiceLocator.Current.GetInstance<IContentRepository>();  //used controller contructor instead (service locator)
 
             //var shoppingPages = shoppingRepository.GetChildren<ShoppingPage>(currentPage.ContentLink).ToList();
             //var categoryPages = shoppingRepository.GetChildren<ShoppingCategoryPage>(currentPage.ContentLink).ToList();
 
             //var model = new ShoppingCategoryPageViewModel(currentPage);
             //model.ShoppingCategoryPages = categoryPages;
-            #endregion
-
-            var categoryPages = contentRepository.GetChildren<ShoppingCategoryPage>(currentPage.ContentLink).ToList();
-
-            var model = new ShoppingCategoryPageViewModel(currentPage)
-            {
-                ShoppingCategoryPages = categoryPages
-            };
-
-            var shoppingLinks = contentRepository.GetChildren<ShoppingPage>(currentPage.ContentLink).ToList();
-            model.ShoppingPages = shoppingLinks;
-
             //foreach (var link in shoppingLinks)
             //{
             //    var shoppingPage = contentRepository.Get<PageData>(link) as ShoppingPage;
@@ -50,6 +38,23 @@ namespace EpiserverSite1.Controllers
             //        model.ShoppingPages.Add(shoppingPage);
             //    }
             //}
+            #endregion
+
+
+
+            var categoryPages = _contentRepository.GetChildren<ShoppingCategoryPage>(currentPage.ContentLink).ToList();
+
+            var model = new ShoppingCategoryPageViewModel(currentPage)
+            {
+                ShoppingCategoryPages = categoryPages
+            };
+
+            var shoppingLinks = _contentRepository.GetChildren<ShoppingPage>(currentPage.ContentLink).ToList();
+            model.ShoppingPages = shoppingLinks;
+
+
+
+
 
             return View(model);
         }

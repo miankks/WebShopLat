@@ -27,9 +27,17 @@ namespace EpiserverSite1.Models.Pages
 
         [Display(
             Name = "Product price",
-            GroupName = SystemTabNames.Content,
+            GroupName = "Price",
             Order = 20)]
-        public virtual string ProductPrice { get; set; }
+        [CultureSpecific]
+        public virtual double ProductPriceFor { get; set; }
+
+        [Display(
+            Name = "Product Moms",
+            GroupName = "Price",
+            Order = 20)]
+        [CultureSpecific]
+        public virtual double Moms { get; set; }
 
         [Display(
             Name = "Product description",

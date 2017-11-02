@@ -11,7 +11,7 @@ namespace EpiserverSite1.Models.ViewModels
 {
     public class ShoppingCategoryPageViewModel : PageViewModel<SitePageData>
     {
-        public ShoppingCategoryPageViewModel(SitePageData currentPage)
+        public ShoppingCategoryPageViewModel(SitePageData currentPage) 
             : base(currentPage)
         {
             this.ShoppingCategoryPages = new List<ShoppingCategoryPage>();

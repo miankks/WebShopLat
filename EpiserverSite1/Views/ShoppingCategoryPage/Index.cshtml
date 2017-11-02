@@ -11,12 +11,11 @@
     {
         <li><h2><a href="@item.LinkURL">@item.Name</a></h2>
         </li>
+               
     }
 </ul>
 
 @foreach (var item in Model.ShoppingPages)
 {
     <h2><a href="@item.LinkURL">@item.Name</a></h2>
-    @item.ProductContentArea
-    
 }
