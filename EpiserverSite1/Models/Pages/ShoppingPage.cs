@@ -29,14 +29,12 @@ namespace EpiserverSite1.Models.Pages
             Name = "Product price",
             GroupName = "Price",
             Order = 20)]
-        [CultureSpecific]
         public virtual double ProductPriceFor { get; set; }
 
         [Display(
             Name = "Product Moms",
             GroupName = "Price",
             Order = 20)]
-        [CultureSpecific]
         public virtual double Moms { get; set; }
 
         [Display(

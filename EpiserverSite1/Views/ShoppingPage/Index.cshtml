@@ -18,13 +18,15 @@
             <h3 @Html.EditAttributes(x => x.CurrentPage.ProductName)>@Html.PropertyFor(x => x.CurrentPage.ProductName)</h3>
             <h3 @Html.EditAttributes(x => x.CurrentPage.ProductPriceFor)>@Html.PropertyFor(x => x.CurrentPage.ProductPriceFor)</h3>
                          
-            <h4>Moms är @Html.PropertyFor(x => x.CurrentPage.Moms)</h4>
+            <h4>Vara moms inklusiv är @Html.PropertyFor(x => x.CurrentPage.Moms)</h4>
                 
             <h3>@Html.PropertyFor(x => x.CurrentPage.ProductContentArea)</h3>
         </div>
     </div>
     <div class="span8">
-          @*  @Html.PropertyFor(x => x.CurrentPage.ProductDecscription)*@
-            <button type="submit" class="btn btn-primary">Köp</button>
+            @Html.PropertyFor(x => x.CurrentPage.ProductDecscription)
+        <form action="Index.cshtml" method="get">
+        <button type="submit" class="btn btn-primary">Köp</button>
+            </form>
     </div>
 </div>

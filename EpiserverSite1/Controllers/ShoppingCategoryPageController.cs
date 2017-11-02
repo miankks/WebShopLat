@@ -53,9 +53,6 @@ namespace EpiserverSite1.Controllers
             model.ShoppingPages = shoppingLinks;
 
 
-
-
-
             return View(model);
         }
     }
