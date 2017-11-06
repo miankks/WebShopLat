@@ -1,4 +1,4 @@
-﻿
+﻿@using EpiserverSite1
 
 @model EpiserverSite1.Models.ViewModels.ShoppingCategoryPageViewModel
 
@@ -10,12 +10,24 @@
     @foreach (var item in Model.ShoppingCategoryPages)
     {
         <li><h2><a href="@item.LinkURL">@item.Name</a></h2>
-        </li>
+
+            @*<img src="@Url.ContentUrl(item.currentPageRef.ProductImage)"/>*@ </li>
                
     }
 </ul>
 
-@foreach (var item in Model.ShoppingPages)
-{
-    <h2><a href="@item.LinkURL">@item.Name</a></h2>
-}
+<div class="row">
+    @foreach (var item in Model.ShoppingPages)
+    {
+        <div class="span5">
+            <div class="media">
+                <div class="mediaImg">
+                    <h2>
+                        <a href="@item.LinkURL">@item.Name</a>
+                    </h2>
+                    <a href="@item.LinkURL"><img src="@Url.ContentUrl(item.ProductImage)" /></a>
+</div>
+            </div>
+        </div>
+    }
+</div>

@@ -17,6 +17,6 @@ namespace EpiserverSite1.Models.Pages
         Include = new[] { typeof(ShoppingPage), typeof(ShoppingCategoryPage) })]
     public class ShoppingCategoryPage : SitePageData
     {
-        public virtual string S { get; set; }
+        //public virtual string S { get; set; }
     }
 }
