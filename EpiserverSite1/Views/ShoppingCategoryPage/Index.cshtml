@@ -2,6 +2,8 @@
 
 @model EpiserverSite1.Models.ViewModels.ShoppingCategoryPageViewModel
 
+@{ Layout = "~/Views/Shared/Layouts/_TwoPlusOne.cshtml"; }
+
 <div class="row">
     <p>Shopping category page</p>
 </div>
@@ -9,24 +11,37 @@
 <ul>
     @foreach (var item in Model.ShoppingCategoryPages)
     {
-        <li><h2><a href="@item.LinkURL">@item.Name</a></h2>
-
-            @*<img src="@Url.ContentUrl(item.currentPageRef.ProductImage)"/>*@ </li>
-               
+        <li>
+            <h2><a href="@item.LinkURL">@item.Name</a></h2>
+            <a href="@item.LinkURL">
+                <img src="@Url.ContentUrl(item.MainProductImage)" alt="Image"/>
+            </a>
+        </li>
     }
 </ul>
 
 <div class="row">
     @foreach (var item in Model.ShoppingPages)
     {
-        <div class="span5">
+        <div class="span4">
             <div class="media">
                 <div class="mediaImg">
                     <h2>
                         <a href="@item.LinkURL">@item.Name</a>
                     </h2>
-                    <a href="@item.LinkURL"><img src="@Url.ContentUrl(item.ProductImage)" /></a>
-</div>
+                    <hr />
+                    @if (item.ProductImage != null)
+                    {
+                        <a href="@item.LinkURL"><img src="@Url.ContentUrl(item.ProductImage)" /></a>
+                    }
+                    else
+                    {
+                        <a href="@item.LinkURL">
+                            <img src="~/Static/gfx/nopreviewavailable.png" />
+                        </a>
+                    }
+                    <h3>Pris:  @item.ProductPriceFor</h3>
+                </div>
             </div>
         </div>
     }

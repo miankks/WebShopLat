@@ -1,15 +1,20 @@
-﻿@model EpiserverSite1.Models.ViewModels.PageViewModel<EpiserverSite1.Models.Pages.ShoppingPage>
+﻿@using EpiserverSite1
+@using EpiserverSite1.Models.Blocks
+@model EpiserverSite1.Models.ViewModels.PageViewModel<EpiserverSite1.Models.Pages.ShoppingPage>
+
+
+@{ Layout = "~/Views/Shared/Layouts/_TwoPlusOne.cshtml"; }
 
 <div class="row">
     <p>Shopping page:</p>
 
     <h1 @Html.EditAttributes(x => x.CurrentPage.PageName)>@Model.CurrentPage.PageName</h1>
-
+   
     <div class="media span4">
         <div class="mediaImg">
             @if (Model.CurrentPage.ProductImage != null)
             {
-            @Html.PropertyFor(x => x.CurrentPage.ProductImage)
+                @Html.PropertyFor(x => x.CurrentPage.ProductImage)
             }
             else
             {
@@ -17,16 +22,35 @@
             }
             <h3 @Html.EditAttributes(x => x.CurrentPage.ProductName)>@Html.PropertyFor(x => x.CurrentPage.ProductName)</h3>
             <h3 @Html.EditAttributes(x => x.CurrentPage.ProductPriceFor)>@Html.PropertyFor(x => x.CurrentPage.ProductPriceFor)</h3>
-                         
-            <h4>Vara moms inklusiv är @Html.PropertyFor(x => x.CurrentPage.Moms)</h4>
+           
+            <h4>Vara moms inklusiv är</h4>
+            @Html.DisplayFor(x => x.CurrentPage.Moms)
+            <h3> ID:@Html.PropertyFor(x => x.CurrentPage.Id)</h3>
                 
-            <h3>@Html.PropertyFor(x => x.CurrentPage.ProductContentArea)</h3>
+            @*<h3>@Html.PropertyFor(x => x.CurrentPage.ProductContentArea)</h3>*@
         </div>
     </div>
-    <div class="span8">
-            @Html.PropertyFor(x => x.CurrentPage.ProductDecscription)
-        <form action="Index.cshtml" method="get">
-        <button type="submit" class="btn btn-primary">Köp</button>
-            </form>
+    <div class="span4">
+        @Html.PropertyFor(x => x.CurrentPage.ProductDecscription)
+        <h3>@Html.PropertyFor(x => x.CurrentPage.ProductContentArea)</h3>
+        @*@using (Html.BeginForm())
+        {
+        }
+            @Html.AntiForgeryToken()*@
+            <button type="submit" class="btn btn-primary">Köp</button>
     </div>
 </div>
+
+@*@section RelatedContent
+{
+    <div @Html.EditAttributes(x => x.CurrentPage.PageImage)>
+        <img src="@Url.ContentUrl(Model.CurrentPage.PageImage)" />
+    </div>
+
+    <div class="block colorBox @string.Join(" ", @Model.CurrentPage.GetThemeCssClassNames())">
+        <h2 @Html.EditAttributes(x => x.CurrentPage.PageName)>@Model.CurrentPage.PageName</h2>
+        @Html.PropertyFor(x => x.CurrentPage.UniqueSellingPoints)
+    </div>
+
+    @Html.PropertyFor(x => x.CurrentPage.RelatedContentArea, new { CssClass = "row", Tag = Global.ContentAreaTags.OneThirdWidth })
+}*@

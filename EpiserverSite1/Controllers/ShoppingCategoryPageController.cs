@@ -40,8 +40,6 @@ namespace EpiserverSite1.Controllers
             //}
             #endregion
 
-
-
             var categoryPages = _contentRepository.GetChildren<ShoppingCategoryPage>(currentPage.ContentLink).ToList();
 
             var model = new ShoppingCategoryPageViewModel(currentPage)
@@ -52,8 +50,16 @@ namespace EpiserverSite1.Controllers
             var shoppingLinks = _contentRepository.GetChildren<ShoppingPage>(currentPage.ContentLink).ToList();
             model.ShoppingPages = shoppingLinks;
 
+            var moms = new ShoppingPage();
+            moms.Moms = moms.ProductPriceFor * 0.25;
 
             return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Cart()
+        {
+            return View(PageContext);
         }
     }
 }

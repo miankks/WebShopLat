@@ -12,6 +12,13 @@ namespace EpiserverSite1.Models.Pages
     public class ShoppingPage : SitePageData
     {
         [Display(
+            Name = "Product Id",
+            Description = "Product Image",
+            GroupName = SystemTabNames.Content,
+            Order = 10)]
+        public virtual string Id { get; set; }
+
+        [Display(
             Name = "Product Image",
             Description = "Product Image",
             GroupName = SystemTabNames.Content,
@@ -49,5 +56,11 @@ namespace EpiserverSite1.Models.Pages
             Order = 50)]
         [CultureSpecific]
         public virtual ContentArea ProductContentArea { get; set; }
+
+        public double MomsRakning()
+        {
+            Moms = Moms / ProductPriceFor * 100;
+            return Moms;
+        }
     }
 }

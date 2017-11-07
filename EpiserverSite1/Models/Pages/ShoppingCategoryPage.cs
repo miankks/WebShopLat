@@ -17,6 +17,12 @@ namespace EpiserverSite1.Models.Pages
         Include = new[] { typeof(ShoppingPage), typeof(ShoppingCategoryPage) })]
     public class ShoppingCategoryPage : SitePageData
     {
-        //public virtual string S { get; set; }
+        [Display(
+            Name = "Main Product Image",
+            Description = "Product Image",
+            GroupName = SystemTabNames.Content,
+            Order = 10)]
+        [UIHint(UIHint.Image)]
+        public virtual ContentReference MainProductImage { get; set; }
     }
 }
