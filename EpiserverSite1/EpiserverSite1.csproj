@@ -284,6 +284,7 @@
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\SearchPageController.cs" />
     <Compile Include="Controllers\ShoppingCategoryPageController.cs" />
+    <Compile Include="Controllers\SizeCategoryBlockController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Controllers\VideoFileController.cs" />
     <Compile Include="Global.asax.cs">
@@ -465,6 +466,7 @@
     <Content Include="Views\ShoppingCategoryPage\Index.cshtml" />
     <Content Include="Views\ShoppingPage\Index.cshtml" />
     <Content Include="Views\ShoppingCategoryPage\Cart.cshtml" />
+    <Content Include="Views\SizeCategoryBlock\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

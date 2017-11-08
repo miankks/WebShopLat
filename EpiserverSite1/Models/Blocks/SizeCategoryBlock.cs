@@ -9,6 +9,7 @@ using EPiServer.Shell.ObjectEditing;
 namespace EpiserverSite1.Models.Blocks
 {
     [ContentType(DisplayName = "SizeCategoryBlock", GUID = "6b0874e1-5591-4ffa-b224-4f844ee7b566", Description = "", AvailableInEditMode = false)]
+    [SiteImageUrl]
     public class SizeCategoryBlock : BlockData
     {
         [SelectOne(SelectionFactoryType = typeof(SizeSelectionFactory))]

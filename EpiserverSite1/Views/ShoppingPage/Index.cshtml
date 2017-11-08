@@ -5,11 +5,15 @@
 
 @{ Layout = "~/Views/Shared/Layouts/_TwoPlusOne.cshtml"; }
 
+
+@using (Html.BeginForm())
+{
+            @Html.AntiForgeryToken()
 <div class="row">
     <p>Shopping page:</p>
 
     <h1 @Html.EditAttributes(x => x.CurrentPage.PageName)>@Model.CurrentPage.PageName</h1>
-   
+
     <div class="media span4">
         <div class="mediaImg">
             @if (Model.CurrentPage.ProductImage != null)
@@ -18,39 +22,41 @@
             }
             else
             {
-                <img src="~/Static/gfx/nopreviewavailable.png"/>
+                <img src="~/Static/gfx/nopreviewavailable.png" />
             }
             <h3 @Html.EditAttributes(x => x.CurrentPage.ProductName)>@Html.PropertyFor(x => x.CurrentPage.ProductName)</h3>
-            <h3 @Html.EditAttributes(x => x.CurrentPage.ProductPriceFor)>@Html.PropertyFor(x => x.CurrentPage.ProductPriceFor)</h3>
-           
-            <h4>Vara moms inklusiv är</h4>
-            @Html.DisplayFor(x => x.CurrentPage.Moms)
-            <h3> ID:@Html.PropertyFor(x => x.CurrentPage.Id)</h3>
-                
-            @*<h3>@Html.PropertyFor(x => x.CurrentPage.ProductContentArea)</h3>*@
+            <h3 @Html.EditAttributes(x => x.CurrentPage.ProductPriceFor)>Pris: @Html.PropertyFor(x => x.CurrentPage.ProductPriceFor) kr</h3>
+
+            <h4>Vara moms inklusiv är "@Html.DisplayFor(x => x.CurrentPage.Moms) kr"</h4>
+
+            <h5> ProductID: @Html.DisplayFor(x => x.CurrentPage.Id)</h5>
         </div>
     </div>
     <div class="span4">
         @Html.PropertyFor(x => x.CurrentPage.ProductDecscription)
-        <h3>@Html.PropertyFor(x => x.CurrentPage.ProductContentArea)</h3>
-        @*@using (Html.BeginForm())
-        {
-        }
-            @Html.AntiForgeryToken()*@
-            <button type="submit" class="btn btn-primary">Köp</button>
+        <h4>Välj storleken</h4>
+        <select id="dropdowntipo">
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+        </select>
+
+        <h4>Välj kvatitet</h4>
+        <select id="dropdowntipo">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        
+
+        <button type="submit" class="btn btn-primary">Köp</button>
     </div>
 </div>
-
-@*@section RelatedContent
-{
-    <div @Html.EditAttributes(x => x.CurrentPage.PageImage)>
-        <img src="@Url.ContentUrl(Model.CurrentPage.PageImage)" />
-    </div>
-
-    <div class="block colorBox @string.Join(" ", @Model.CurrentPage.GetThemeCssClassNames())">
-        <h2 @Html.EditAttributes(x => x.CurrentPage.PageName)>@Model.CurrentPage.PageName</h2>
-        @Html.PropertyFor(x => x.CurrentPage.UniqueSellingPoints)
-    </div>
-
-    @Html.PropertyFor(x => x.CurrentPage.RelatedContentArea, new { CssClass = "row", Tag = Global.ContentAreaTags.OneThirdWidth })
-}*@
+}

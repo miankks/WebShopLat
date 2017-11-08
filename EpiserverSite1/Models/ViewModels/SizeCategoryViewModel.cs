@@ -13,7 +13,12 @@ namespace EpiserverSite1.Models.ViewModels
         public string Large { get; set; }
 
 
-        public object Value => $"{Medium}-{Large}-{Small}"; // instead of normal getters and setters
+        public object Value => $"{Medium}-{Large}"; // instead of normal getters and setters
+
+        //public string Text
+        //{
+        //    get { return Small; } 
+        //}
 
         public string Text => Small;
     }
@@ -24,7 +29,7 @@ namespace EpiserverSite1.Models.ViewModels
         {
             return new SizeCategoryViewModel[]
             {
-                new SizeCategoryViewModel() { Small = "Small" },
+                new SizeCategoryViewModel() { Small = "Small"},
                 new SizeCategoryViewModel() { Medium = "Medium" },
                 new SizeCategoryViewModel() { Large = "Large" },
             };

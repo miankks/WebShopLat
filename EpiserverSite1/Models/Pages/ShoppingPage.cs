@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
@@ -11,12 +12,29 @@ namespace EpiserverSite1.Models.Pages
     [ContentType(DisplayName = "ShoppingPage", GUID = "396d282a-900d-41cb-9001-7fee1cbfa896", Description = "")]
     public class ShoppingPage : SitePageData
     {
+
         [Display(
             Name = "Product Id",
             Description = "Product Image",
             GroupName = SystemTabNames.Content,
-            Order = 10)]
-        public virtual string Id { get; set; }
+            Order = 1)]
+        [Key]
+        public virtual string Id {
+            get
+            {
+                var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                var stringChars = new char[7];
+                var random = new Random();
+
+                for (int i = 0; i < stringChars.Length; i++)
+                {
+                    stringChars[i] = chars[random.Next(chars.Length)];
+                }
+
+                var finalString = new String(stringChars);
+                return finalString;
+            } 
+        }
 
         [Display(
             Name = "Product Image",
@@ -42,7 +60,7 @@ namespace EpiserverSite1.Models.Pages
             Name = "Product Moms",
             GroupName = "Price",
             Order = 20)]
-        public virtual double Moms { get; set; }
+        public virtual double Moms => ProductPriceFor * 0.25;
 
         [Display(
             Name = "Product description",
@@ -56,11 +74,5 @@ namespace EpiserverSite1.Models.Pages
             Order = 50)]
         [CultureSpecific]
         public virtual ContentArea ProductContentArea { get; set; }
-
-        public double MomsRakning()
-        {
-            Moms = Moms / ProductPriceFor * 100;
-            return Moms;
-        }
     }
 }

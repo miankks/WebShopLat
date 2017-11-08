@@ -50,16 +50,26 @@ namespace EpiserverSite1.Controllers
             var shoppingLinks = _contentRepository.GetChildren<ShoppingPage>(currentPage.ContentLink).ToList();
             model.ShoppingPages = shoppingLinks;
 
-            var moms = new ShoppingPage();
-            moms.Moms = moms.ProductPriceFor * 0.25;
 
             return View(model);
         }
 
-        [HttpGet]
-        public ActionResult Cart()
-        {
-            return View(PageContext);
-        }
+        //[HttpGet]
+        //public ActionResult Cart(ShoppingCategoryPage currentPage)
+        //{
+        //    var categoryPages = _contentRepository.GetChildren<ShoppingCategoryPage>(currentPage.ContentLink).ToList();
+
+        //    var model = new ShoppingCategoryPageViewModel(currentPage)
+        //    {
+        //        ShoppingCategoryPages = categoryPages
+        //    };
+        //    var shoppingLinks = _contentRepository.GetChildren<ShoppingPage>(currentPage.ContentLink).ToList();
+        //    model.ShoppingPages = shoppingLinks;
+
+
+        //    var find = from shoppingLink in shoppingLinks select shoppingLink;
+        //    model.ShoppingPages = find.ToList();
+        //    return View(PageContext);
+        //}
     }
 }
