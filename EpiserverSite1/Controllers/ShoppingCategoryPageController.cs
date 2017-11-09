@@ -50,7 +50,7 @@ namespace EpiserverSite1.Controllers
             var shoppingLinks = _contentRepository.GetChildren<ShoppingPage>(currentPage.ContentLink).ToList();
             model.ShoppingPages = shoppingLinks;
 
-
+            
             return View(model);
         }
 

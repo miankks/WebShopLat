@@ -21,5 +21,6 @@ namespace EpiserverSite1.Models.ViewModels
         public List<ShoppingCategoryPage> ShoppingCategoryPages { get; set; }
 
         public List<ShoppingPage> ShoppingPages { get; set; }
+
     }
 }
