@@ -51,8 +51,8 @@ namespace EpiserverSite1.Controllers
             var shoppingLinks = _contentRepository.GetChildren<ShoppingPage>(currentPage.ContentLink).ToList();
             model.ShoppingPages = shoppingLinks;
 
-            var sizeCategories = _contentRepository.GetChildren<SizeCategoryBlock>(currentPage.ContentLink).ToList();
-            model.Categorieses = sizeCategories;
+                var sizeCategories = _contentRepository.GetChildren<SizeCategoryBlock>(currentPage.ContentLink).ToList();
+                model.Categorieses = sizeCategories;
             return View(model);
         }
 

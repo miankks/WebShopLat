@@ -322,6 +322,7 @@
     <Compile Include="Models\Pages\ShoppingPage.cs" />
     <Compile Include="Models\Pages\SitePageData.cs" />
     <Compile Include="Models\Pages\SizeCategories.cs" />
+    <Compile Include="Models\Pages\SizeCategoryPage.cs" />
     <Compile Include="Models\Pages\StandardPage.cs" />
     <Compile Include="Models\Pages\StartPage.cs" />
     <Compile Include="Models\Properties\PropertyStringList.cs" />
