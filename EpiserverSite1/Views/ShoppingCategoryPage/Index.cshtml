@@ -11,9 +11,9 @@
     @foreach (var item in Model.ShoppingCategoryPages)
     {
         <div class="span4">
-            <h2><a href="@item.LinkURL">@item.Name</a>
-            </h2>
+            <h2><a href="@item.LinkURL">@item.Name</a> </h2>
     <a href="@item.LinkURL"> <img src="@Url.ContentUrl(item.MainProductImage)" alt="Image"/> </a>
+        <hr/>
         </div>
     }
 </div>
@@ -47,4 +47,10 @@
             </div>
         </div>
     }
+        <select id="dropdowntipo">
+    @foreach (var item in Model.Categorieses)
+    {
+    <option value="Small">@item.SelectSize)</option>
+    }
+            </select>
 </div>

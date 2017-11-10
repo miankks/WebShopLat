@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using EpiserverSite1.Models.Blocks;
 using EpiserverSite1.Models.Pages;
 using EpiserverSite1.Models.ViewModels;
 using EPiServer;
@@ -50,7 +51,8 @@ namespace EpiserverSite1.Controllers
             var shoppingLinks = _contentRepository.GetChildren<ShoppingPage>(currentPage.ContentLink).ToList();
             model.ShoppingPages = shoppingLinks;
 
-            
+            var sizeCategories = _contentRepository.GetChildren<SizeCategoryBlock>(currentPage.ContentLink).ToList();
+            model.Categorieses = sizeCategories;
             return View(model);
         }
 

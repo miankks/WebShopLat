@@ -1,4 +1,5 @@
 ﻿@using EpiserverSite1
+@using EpiserverSite1.Models.ViewModels
 @using EpiserverSite1.Models.Blocks
 @model EpiserverSite1.Models.ViewModels.PageViewModel<EpiserverSite1.Models.Pages.ShoppingPage>
 
@@ -8,61 +9,56 @@
 
 @using (Html.BeginForm())
 {
-            @Html.AntiForgeryToken()
-<div class="row">
-    <p>Shopping page:</p>
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <p>Shopping page:</p>
 
-    <h1 @Html.EditAttributes(x => x.CurrentPage.PageName)>@Model.CurrentPage.PageName</h1>
+        <h1 @Html.EditAttributes(x => x.CurrentPage.PageName)>@Model.CurrentPage.PageName</h1>
 
-    <div class="media span4">
-        <div class="mediaImg">
-            @if (Model.CurrentPage.ProductImage != null)
-            {
-                @Html.PropertyFor(x => x.CurrentPage.ProductImage)
-            }
-            else
-            {
-                <img src="~/Static/gfx/nopreviewavailable.png" />
-            }
-            <h3 @Html.EditAttributes(x => x.CurrentPage.ProductName)>@Html.PropertyFor(x => x.CurrentPage.ProductName)</h3>
-            <h3 @Html.EditAttributes(x => x.CurrentPage.ProductPriceFor)>Pris: @Html.PropertyFor(x => x.CurrentPage.ProductPriceFor) kr</h3>
+        <div class="media span4">
+            <div class="mediaImg">
+                @if (Model.CurrentPage.ProductImage != null)
+                {
+                    @Html.PropertyFor(x => x.CurrentPage.ProductImage)
+                }
+                else
+                {
+                    <img src="~/Static/gfx/nopreviewavailable.png" />
+                }
+                <h3 @Html.EditAttributes(x => x.CurrentPage.ProductName)>@Html.PropertyFor(x => x.CurrentPage.ProductName)</h3>
+                <h3 @Html.EditAttributes(x => x.CurrentPage.ProductPriceFor)>Pris: @Html.PropertyFor(x => x.CurrentPage.ProductPriceFor) kr</h3>
 
-            <h4>Vara moms inklusiv är "@Html.DisplayFor(x => x.CurrentPage.Moms) kr"</h4>
-           <h5> ProductID: @Html.DisplayFor(x => x.CurrentPage.Id)</h5>
+                <h4>Vara moms inklusiv är "@Html.DisplayFor(x => x.CurrentPage.Moms) kr"</h4>
+                <h5> ProductID: @Html.DisplayFor(x => x.CurrentPage.Id)</h5>
+            </div>
+        </div>
+        <div class="span4">
+            @Html.PropertyFor(x => x.CurrentPage.ProductDecscription)
+            @Html.PropertyFor(x => x.CurrentPage.ProductContentArea)
+
+            <br />
+            <h4>Välj storleken</h4>
+            <select id="dropdowntipo">
+                <option value="Small">@Html.PropertyFor(x => x.CurrentPage.ProductContentArea)</option>
+            </select>
+
+            <h4>Välj kvantitet</h4>
+            <select id="dropdowntipo">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+
+
+            <button type="submit" class="btn btn-primary">Köp</button>
         </div>
     </div>
-    <div class="span4">
-        @Html.PropertyFor(x => x.CurrentPage.ProductDecscription)
-        @Html.PropertyFor(x => x.CurrentPage.ProductContentArea)
-
-        <br />
-        <h4>Välj storleken</h4>
-        <select id="dropdowntipo">
-            <option value="Small">@Html.PropertyFor(x => x.CurrentPage.ProductContentArea)</option>
-            <option value="Medium">@Html.PropertyFor(x => x.CurrentPage.ProductContentArea)</option>
-            <option value="Large">@Html.PropertyFor(x => x.CurrentPage.ProductContentArea)</option>
-            @*<option value="Medium">Medium</option>
-        @Html.PropertyFor(x => x.CurrentPage.ProductContentArea)
-            <option value="Large">Large</option>*@
-        </select>
-
-        <h4>Välj kvatitet</h4>
-        <select id="dropdowntipo">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-        </select>
-        
-
-        <button type="submit" class="btn btn-primary">Köp</button>
-    </div>
-</div>
 }
 

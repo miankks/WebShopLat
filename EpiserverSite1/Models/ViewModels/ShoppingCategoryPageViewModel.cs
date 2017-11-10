@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using EpiserverSite1.Models.Blocks;
 using EpiserverSite1.Models.Pages;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
@@ -16,11 +17,14 @@ namespace EpiserverSite1.Models.ViewModels
         {
             this.ShoppingCategoryPages = new List<ShoppingCategoryPage>();
             this.ShoppingPages = new List<ShoppingPage>();
+            this.Categorieses = new List<SizeCategoryBlock>();
         }
 
         public List<ShoppingCategoryPage> ShoppingCategoryPages { get; set; }
 
         public List<ShoppingPage> ShoppingPages { get; set; }
+
+        public  List<SizeCategoryBlock> Categorieses { get; set; }
 
     }
 }
