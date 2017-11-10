@@ -28,18 +28,22 @@
             <h3 @Html.EditAttributes(x => x.CurrentPage.ProductPriceFor)>Pris: @Html.PropertyFor(x => x.CurrentPage.ProductPriceFor) kr</h3>
 
             <h4>Vara moms inklusiv är "@Html.DisplayFor(x => x.CurrentPage.Moms) kr"</h4>
-
-            <h5> ProductID: @Html.DisplayFor(x => x.CurrentPage.Id)</h5>
+           <h5> ProductID: @Html.DisplayFor(x => x.CurrentPage.Id)</h5>
         </div>
     </div>
     <div class="span4">
         @Html.PropertyFor(x => x.CurrentPage.ProductDecscription)
+        @Html.PropertyFor(x => x.CurrentPage.ProductContentArea)
+
         <br />
         <h4>Välj storleken</h4>
         <select id="dropdowntipo">
-            <option value="Small">Small</option>
-            <option value="Medium">Medium</option>
-            <option value="Large">Large</option>
+            <option value="Small">@Html.PropertyFor(x => x.CurrentPage.ProductContentArea)</option>
+            <option value="Medium">@Html.PropertyFor(x => x.CurrentPage.ProductContentArea)</option>
+            <option value="Large">@Html.PropertyFor(x => x.CurrentPage.ProductContentArea)</option>
+            @*<option value="Medium">Medium</option>
+        @Html.PropertyFor(x => x.CurrentPage.ProductContentArea)
+            <option value="Large">Large</option>*@
         </select>
 
         <h4>Välj kvatitet</h4>
@@ -61,3 +65,4 @@
     </div>
 </div>
 }
+

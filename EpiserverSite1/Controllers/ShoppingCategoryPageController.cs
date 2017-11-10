@@ -57,19 +57,7 @@ namespace EpiserverSite1.Controllers
         //[HttpGet]
         //public ActionResult Cart(ShoppingCategoryPage currentPage)
         //{
-        //    var categoryPages = _contentRepository.GetChildren<ShoppingCategoryPage>(currentPage.ContentLink).ToList();
-
-        //    var model = new ShoppingCategoryPageViewModel(currentPage)
-        //    {
-        //        ShoppingCategoryPages = categoryPages
-        //    };
-        //    var shoppingLinks = _contentRepository.GetChildren<ShoppingPage>(currentPage.ContentLink).ToList();
-        //    model.ShoppingPages = shoppingLinks;
-
-
-        //    var find = from shoppingLink in shoppingLinks select shoppingLink;
-        //    model.ShoppingPages = find.ToList();
-        //    return View(PageContext);
+        
         //}
     }
 }
