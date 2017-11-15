@@ -15,7 +15,7 @@ namespace EpiserverSite1.Models.Pages
 
         [Display(
             Name = "Product Id",
-            Description = "Product Image",
+            Description = "Product Id",
             GroupName = SystemTabNames.Content,
             Order = 1)]
         [Key]
@@ -30,7 +30,6 @@ namespace EpiserverSite1.Models.Pages
                 {
                     stringChars[i] = chars[random.Next(chars.Length)];
                 }
-
                 string finalString = new String(stringChars);
                 return finalString;
             } 

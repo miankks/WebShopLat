@@ -50,16 +50,41 @@ namespace EpiserverSite1.Controllers
 
             var shoppingLinks = _contentRepository.GetChildren<ShoppingPage>(currentPage.ContentLink).ToList();
             model.ShoppingPages = shoppingLinks;
+            TempData["successmessage"] = "Objektet har lagts i korgen!";
 
-                var sizeCategories = _contentRepository.GetChildren<SizeCategoryBlock>(currentPage.ContentLink).ToList();
-                model.Categorieses = sizeCategories;
+            //var sizeCategories = _contentRepository.GetChildren<SizeCategoryBlock>(currentPage.ContentLink).ToList();
+            //model.Categorieses = sizeCategories;
             return View(model);
         }
 
-        //[HttpGet]
-        //public ActionResult Cart(ShoppingCategoryPage currentPage)
-        //{
+
+      
+        public ActionResult Cart()
+        {
+            var shop = new ShoppingPage();
+          
         
-        //}
+            return View(shop);
+            //return RedirectToAction("Index");
+            //string name = Request.Form["ProductName"].ToString();
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Cart([Bind(Include = "ProductName,Id,ProductImage,ProductName,ProductPriceFor")] ShoppingPage model)
+        {
+            var shop = new ShoppingPage();
+            shop.ProductName = model.ProductName;
+            if (ModelState.IsValid)
+            {
+            TempData["successmessage"] = "Objektet har lagts i korgen igen and en till!";
+            return View(shop);
+
+            }
+            return View(shop);
+            //return RedirectToAction("Index");
+            //string name = Request.Form["ProductName"].ToString();
+        }
     }
 }

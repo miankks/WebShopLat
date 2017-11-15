@@ -9,7 +9,9 @@
 
 
 /*General*/
-
+.popuppicture {
+    cursor: pointer;
+}
 .picturesize {
     height: 500px;
     width: 400px;

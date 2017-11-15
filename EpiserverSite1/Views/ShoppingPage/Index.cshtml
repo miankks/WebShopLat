@@ -1,21 +1,27 @@
-﻿@using EpiserverSite1
-@using EpiserverSite1.Models.ViewModels
+﻿
 @using EpiserverSite1.Models.Blocks
 @model EpiserverSite1.Models.ViewModels.PageViewModel<EpiserverSite1.Models.Pages.ShoppingPage>
 
 
 @{ Layout = "~/Views/Shared/Layouts/_TwoPlusOne.cshtml"; }
 
+<p>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <div class="row">
-        <p>Shopping page:</p>
+    <div class="alert alert-success fade in">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+        @TempData["successmessage"]
+    </div>
+</p>
+<div class="row">
+    <p>Shopping page:</p>
 
-        <h1 @Html.EditAttributes(x => x.CurrentPage.PageName)>@Model.CurrentPage.PageName</h1>
+    <h1 @Html.EditAttributes(x => x.CurrentPage.PageName)>@Model.CurrentPage.PageName</h1>
 
-        <div class="media span4">
+    @using (Html.BeginForm("Cart", "ShoppingCategoryPage", FormMethod.Post, new { model = Model.CurrentPage }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="media span4  popuppicture">
             <div class="mediaImg">
                 @if (Model.CurrentPage.ProductImage != null)
                 {
@@ -34,11 +40,10 @@
         </div>
         <div class="span4">
             @Html.PropertyFor(x => x.CurrentPage.ProductDecscription)
-            @Html.PropertyFor(x => x.CurrentPage.ProductContentArea)
 
             <br />
             <h4>Välj storleken</h4>
-            <select id="dropdowntipo">
+            <select>
                 <option value="Small">@Html.PropertyFor(x => x.CurrentPage.ProductContentArea)</option>
             </select>
 
@@ -59,6 +64,6 @@
 
             <button type="submit" class="btn btn-primary">Köp</button>
         </div>
-    </div>
-}
+    }
+</div>
 

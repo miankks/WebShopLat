@@ -12,8 +12,8 @@
     {
         <div class="span4">
             <h2><a href="@item.LinkURL">@item.Name</a> </h2>
-    <a href="@item.LinkURL"> <img src="@Url.ContentUrl(item.MainProductImage)" alt="Image"/> </a>
-        <hr/>
+            <a href="@item.LinkURL"> <img src="@Url.ContentUrl(item.MainProductImage)" alt="Image" /> </a>
+            <hr />
         </div>
     }
 </div>
@@ -22,7 +22,6 @@
     @foreach (var item in Model.ShoppingPages)
     {
         <p>Shoping page</p>
-
         <div class="span4">
             <div class="media">
                 <div class="mediaImg">
@@ -41,17 +40,8 @@
                         </a>
                     }
                     <h3>Pris:  @item.ProductPriceFor</h3>
-                 
-                       
                 </div>
             </div>
         </div>
     }
-        <select id="dropdowntipo">
-    @foreach (var item in Model.Categorieses)
-    {
-        <option value="Small">@item.SelectSize</option>
-        
-    }
-            </select>
 </div>

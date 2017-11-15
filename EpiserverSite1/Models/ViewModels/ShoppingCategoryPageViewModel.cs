@@ -17,14 +17,14 @@ namespace EpiserverSite1.Models.ViewModels
         {
             this.ShoppingCategoryPages = new List<ShoppingCategoryPage>();
             this.ShoppingPages = new List<ShoppingPage>();
-            this.Categorieses = new List<SizeCategoryBlock>();
+            //this.Categorieses = new List<SizeCategoryBlock>();
         }
 
         public List<ShoppingCategoryPage> ShoppingCategoryPages { get; set; }
 
         public List<ShoppingPage> ShoppingPages { get; set; }
 
-        public  List<SizeCategoryBlock> Categorieses { get; set; }
+        //public  List<SizeCategoryBlock> Categorieses { get; set; }
 
     }
 }
