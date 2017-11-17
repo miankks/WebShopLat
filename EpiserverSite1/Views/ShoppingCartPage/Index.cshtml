@@ -1,0 +1,10 @@
+﻿@model ShoppingCartViewModel
+
+<div>
+    <h1> Cart page</h1>
+</div>
+
+@foreach (var item in Model.ShoppingCartPages)
+{
+  <img src="@Url.ContentUrl(item.CartImage)"/>
+}

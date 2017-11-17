@@ -57,34 +57,20 @@ namespace EpiserverSite1.Controllers
             return View(model);
         }
 
-
-      
-        public ActionResult Cart()
-        {
-            var shop = new ShoppingPage();
-          
-        
-            return View(shop);
-            //return RedirectToAction("Index");
-            //string name = Request.Form["ProductName"].ToString();
-        }
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Cart([Bind(Include = "ProductName,Id,ProductImage,ProductName,ProductPriceFor")] ShoppingPage model)
+        public ActionResult Cart()
         {
-            var shop = new ShoppingPage();
-            shop.ProductName = model.ProductName;
-            if (ModelState.IsValid)
-            {
-            TempData["successmessage"] = "Objektet har lagts i korgen igen and en till!";
-            return View(shop);
+            // var x = GetPage(productpageid)
 
-            }
-            return View(shop);
-            //return RedirectToAction("Index");
-            //string name = Request.Form["ProductName"].ToString();
+            //var categoryPages = _contentRepository.GetChildren<ShoppingPage>(currentPage.ContentLink).ToList();
+
+            //var model = new ShoppingCartViewModel(currentPage)
+            //{
+            //    ShoppingCartPages = categoryPages
+            //};
+            return Content("hi");
+            //return Content("Done");
         }
     }
 }

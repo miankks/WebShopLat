@@ -4,6 +4,7 @@ using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
 using EPiServer.SpecializedProperties;
 using EpiserverSite1.Models.Blocks;
+using EpiserverSite1.Models.ViewModels;
 
 namespace EpiserverSite1.Models.Pages
 {
@@ -16,7 +17,7 @@ namespace EpiserverSite1.Models.Pages
     [SiteImageUrl]
     [AvailableContentTypes(
         Availability.Specific,
-        Include = new[] { typeof(ContainerPage), typeof(ProductPage), typeof(StandardPage), typeof(ISearchPage), typeof(LandingPage), typeof(ContentFolder), typeof(ShoppingCategoryPage) }, // Pages we can create under the start page...
+        Include = new[] { typeof(ContainerPage), typeof(ProductPage), typeof(StandardPage), typeof(ISearchPage), typeof(LandingPage), typeof(ContentFolder), typeof(ShoppingCategoryPage), typeof(ShoppingCartPage),typeof(ShoppingCartViewModel) }, // Pages we can create under the start page...
         ExcludeOn = new[] { typeof(ContainerPage), typeof(ProductPage), typeof(StandardPage), typeof(ISearchPage), typeof(LandingPage) })] // ...and underneath those we can't create additional start pages
     public class StartPage : SitePageData
     {

@@ -1,0 +1,10 @@
+﻿@model ShoppingCartViewModel
+    
+<div>
+    <h1>cart</h1>
+</div>
+
+@foreach (var item in Model.ShoppingCartPages)
+{
+    @item.TotalCartPrice
+}

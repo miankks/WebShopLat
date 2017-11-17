@@ -1,5 +1,5 @@
 ﻿
-@using EpiserverSite1.Models.Blocks
+
 @model EpiserverSite1.Models.ViewModels.PageViewModel<EpiserverSite1.Models.Pages.ShoppingPage>
 
 
@@ -16,8 +16,10 @@
     <p>Shopping page:</p>
 
     <h1 @Html.EditAttributes(x => x.CurrentPage.PageName)>@Model.CurrentPage.PageName</h1>
-
-    @using (Html.BeginForm("Cart", "ShoppingCategoryPage", FormMethod.Post, new { model = Model.CurrentPage }))
+@if (Model != null)
+{
+    @*<form method="post" action=".">*@
+        @Html.BeginForm("Index", "ShoppingCategoryPage", FormMethod.Post)
     {
         @Html.AntiForgeryToken()
 
@@ -29,26 +31,32 @@
                 }
                 else
                 {
-                    <img src="~/Static/gfx/nopreviewavailable.png" />
+                    <img src="~/Static/gfx/nopreviewavailable.png"/>
                 }
                 <h3 @Html.EditAttributes(x => x.CurrentPage.ProductName)>@Html.PropertyFor(x => x.CurrentPage.ProductName)</h3>
                 <h3 @Html.EditAttributes(x => x.CurrentPage.ProductPriceFor)>Pris: @Html.PropertyFor(x => x.CurrentPage.ProductPriceFor) kr</h3>
 
                 <h4>Vara moms inklusiv är "@Html.DisplayFor(x => x.CurrentPage.Moms) kr"</h4>
-                <h5> ProductID: @Html.DisplayFor(x => x.CurrentPage.Id)</h5>
+                <h5> ProductID: @Html.DisplayFor(x => x.CurrentPage.ContentLink.ID)</h5>
             </div>
         </div>
         <div class="span4">
             @Html.PropertyFor(x => x.CurrentPage.ProductDecscription)
 
-            <br />
+            <br/>
             <h4>Välj storleken</h4>
-            <select>
-                <option value="Small">@Html.PropertyFor(x => x.CurrentPage.ProductContentArea)</option>
+            <select name="productid">
+                @if (Model.CurrentPage.ProductContentArea != null)
+                {
+                    foreach (var item in Model.CurrentPage.ProductContentArea.FilteredItems)
+                    {
+                        <option value="@item.ContentLink.ID">@item.ContentLink.ID</option>
+                    }
+                }
             </select>
 
             <h4>Välj kvantitet</h4>
-            <select id="dropdowntipo">
+            <select id="dropdowntipo" name="dropdowntipo">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -61,9 +69,10 @@
                 <option value="10">10</option>
             </select>
 
-
-            <button type="submit" class="btn btn-primary">Köp</button>
+            <input type="submit" class="btn btn-primary" value="Läg till">
         </div>
     }
+    @*</form>*@
+}
 </div>
 

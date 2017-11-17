@@ -18,22 +18,7 @@ namespace EpiserverSite1.Models.Pages
             Description = "Product Id",
             GroupName = SystemTabNames.Content,
             Order = 1)]
-        [Key]
-        public virtual string Id {
-            get
-            {
-                string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-                char[] stringChars = new char[7];
-                Random random = new Random();
-
-                for (int i = 0; i < stringChars.Length; i++)
-                {
-                    stringChars[i] = chars[random.Next(chars.Length)];
-                }
-                string finalString = new String(stringChars);
-                return finalString;
-            } 
-        }
+        public virtual string Id { get; set; }
 
         [Display(
             Name = "Product Image",
@@ -73,5 +58,21 @@ namespace EpiserverSite1.Models.Pages
             Order = 50)]
         [CultureSpecific]
         public virtual ContentArea ProductContentArea { get; set; }
+
+        public override void SetDefaultValues(ContentType contentType)
+        {
+            base.SetDefaultValues(contentType);
+
+            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            char[] stringChars = new char[7];
+            Random random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+            string finalString = new String(stringChars);
+            this.Id = finalString;
+        }
     }
 }
